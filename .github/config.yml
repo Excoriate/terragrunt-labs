@@ -1,0 +1,23 @@
+---
+# Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: >
+  Thanks for opening an issue in Terragrunt Labs! 👷‍♀️
+
+  We appreciate your contribution to our infrastructure testing and validation platform.
+  Please ensure you follow our issue template and provide as much detail as possible about your infrastructure scenario.
+# Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
+# Comment to be posted to on PRs from first time contributors in your repository
+newPRWelcomeComment: >
+  Welcome to Terragrunt Labs! 🏗️
+
+  Thank you for your pull request. Our maintainers will review your contribution focusing on:
+  - IaaC best practices, and code-quality
+  - Terragrunt/Terraform best practices and compatibility
+  - Clean code, and documentation.
+# Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
+# Comment to be posted to on pull requests merged by a first time user
+firstPRMergeComment: >-
+  Congratulations on merging your first pull request to Terragrunt Labs! 🎉
+
+  Your contribution helps a lot!.

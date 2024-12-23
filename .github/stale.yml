@@ -1,0 +1,27 @@
+---
+# Number of days of inactivity before an issue becomes stale
+daysUntilStale: 90
+# Number of days of inactivity before a stale issue is closed
+daysUntilClose: 14
+# Issues with these labels will never be considered stale
+exemptLabels:
+  - pinned
+  - security
+  - infra/critical
+  - infra/core-component
+  - tool/core-functionality
+  - multi-tool/integration
+# Label to use when marking an issue as stale
+staleLabel: stale
+# Comment to post when marking an issue as stale
+markComment: >
+  This issue in the Terragrunt Labs repository has been automatically marked as stale
+  due to lack of recent activity. It will be closed if no further interaction occurs
+  within 14 days. If this infrastructure testing scenario or tool enhancement is still
+  relevant, please comment to keep it open. 🏗️
+# Comment to post when closing a stale issue
+closeComment: >
+  This issue has been automatically closed due to inactivity in the Terragrunt Labs repository.
+  If the infrastructure testing scenario or tool enhancement is still relevant,
+  please reopen and provide updated context. Feel free to create a new issue
+  with the most recent information about your Terragrunt, Terraform, or OpenTofu configuration. 👋

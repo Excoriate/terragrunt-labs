@@ -1,0 +1,31 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Go files
+*.go text diff=golang
+go.mod text diff=golang
+go.sum text diff=golang
+
+# Terraform files
+*.tf text diff=terraform
+*.tfvars text
+*.hcl text
+
+# Terragrunt files
+*.hcl text
+
+# Binary files
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+
+# Documentation
+*.md text diff=markdown
+
+# Ignore specific files in export
+.github export-ignore
+.gitignore export-ignore
+.golangci.yml export-ignore
+.pre-commit-config.yaml export-ignore
+.editorconfig export-ignore

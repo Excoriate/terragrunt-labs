@@ -1,0 +1,91 @@
+---
+# Root changes
+root:
+  - changed-files:
+      - any-glob-to-any-file: '*'
+
+# Documentation changes
+documentation:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/*.md'
+          - 'docs/**/*'
+          - '**/README.md'
+          - '**/CONTRIBUTING.md'
+
+# Terragrunt Infrastructure changes
+infra/terragrunt:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'terragrunt/**/*.hcl'
+          - 'terragrunt/**/*.yaml'
+          - 'terragrunt/_*/**/*'
+
+# Terraform Module changes
+infra/terraform:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'terragrunt/**/*.tf'
+          - 'terragrunt/**/*.tfvars'
+
+# CLI Tool changes
+tool/gh-issue-puller:
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'tools/gh-issue-puller/**/*.go'
+          - 'tools/gh-issue-puller/go.mod'
+          - 'tools/gh-issue-puller/go.sum'
+
+# CI/CD changes
+ci:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.github/**/*'
+          - 'justfile'
+          - 'Makefile'
+
+# Dependency changes
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/go.mod'
+          - '**/go.sum'
+          - 'release-please-config.json'
+
+# Test changes
+tests:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '**/*_test.go'
+          - 'tools/gh-issue-puller/test/**/*'
+
+# Configuration and tooling changes
+maintenance:
+  - changed-files:
+      - any-glob-to-any-file:
+          - '.gitignore'
+          - '.editorconfig'
+          - '.golangci.yml'
+          - 'justfile'
+          - '.cursorrules'
+
+# Branch-based labels
+feature:
+  - head-branch: ['^feature/', 'feature']
+
+infrastructure:
+  - head-branch: ['^infra/', 'infrastructure']
+
+bug:
+  - head-branch:
+      - '^fix/'
+      - '^bugfix/'
+      - '^bug/'
+
+breaking:
+  - head-branch:
+      - '^breaking/'
+      - '^major/'
+
+release:
+  - base-branch: main

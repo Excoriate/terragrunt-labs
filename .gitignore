@@ -1,0 +1,77 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Development and system files
+.DS_Store
+*.pem
+.env
+.env*.local
+
+# Dependency and build directories
+node_modules/
+vendor/
+bin/
+tmp/
+build/
+dist/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Terraform and Terragrunt
+.terraform/
+.terragrunt-cache/
+*.tfstate
+*.tfstate.*
+*.tfplan
+.terraform.lock.hcl
+*.tfvars
+*.tfvars.json
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.sum
+coverage/
+
+# Logs and debugging
+crash.log
+crash.*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Caches and temporary files
+.cache/
+.next/
+.expo/
+out/
+
+# Testing
+coverage/
+
+# Compiled binaries and artifacts
+*.a
+target/
+Cargo.lock
+*.rs.bk
+
+# Miscellaneous
+.turbo
+.vercel
+*.tsbuildinfo
+.aider*
+.AI*
+.cursorrules
+
+# Tools
+tools/gh-issue-puller/gh-issue-puller

@@ -1,0 +1,23 @@
+feature: ['feature/*', 'enhancement/*']
+bug: ['fix/*', 'bugfix/*', 'bug/*']
+documentation: ['docs/*', 'readme/*']
+performance: ['perf/*', 'optimize/*']
+dependencies: ['deps/*', 'upgrade/*']
+
+# Infrastructure-specific labels
+infra/terragrunt: ['terragrunt/*', 'infra/terragrunt/*']
+infra/terraform: ['terraform/*', 'infra/terraform/*']
+tool/gh-issue-puller: ['tools/gh-issue-puller/*']
+
+# Maintenance and configuration
+maintenance: ['chore/*', 'config/*']
+ci: ['ci/*', 'workflow/*']
+
+# Breaking changes
+breaking: ['breaking/*', 'major/*']
+
+# Release preparation
+release: ['release/*', 'prep/*']
+
+# Test-related changes
+tests: ['test/*', 'testing/*', 'scenario/*']

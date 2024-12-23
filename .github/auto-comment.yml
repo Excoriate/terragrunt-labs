@@ -1,0 +1,15 @@
+---
+pullRequestOpened: |-
+  :wave: Thanks for contributing to Terragrunt Labs!
+
+  Before we can merge this PR, please ensure:
+  - [ ] Added/updated tests for new functionality
+  - [ ] Followed Go best practices and linting rules
+  - [ ] Updated documentation for new features
+  - [ ] Verified Terragrunt/Terraform configuration compatibility
+  - [ ] Linked to relevant issue (if applicable)
+
+  Terragrunt Labs Specific Checklist:
+  - [ ] Ensured compatibility with Terraform and OpenTofu
+
+  Thank you for improving Terragrunt Labs! 🚀

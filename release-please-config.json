@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    "tools/gh-issue-puller": {
+      "release-type": "go",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true,
+      "changelog-path": "tools/gh-issue-puller/CHANGELOG.md"
+    },
+    "terragrunt/contributions": {
+      "release-type": "contributions",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true
+    },
+    "terragrunt/archive": {
+      "release-type": "archive",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true
+    },
+    "terragrunt/scenarios": {
+      "release-type": "scenarios",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true
+    }
+  },
+  "changelog-sections": [
+    {"type": "feat", "section": "Features"},
+    {"type": "fix", "section": "Bug Fixes"},
+    {"type": "docs", "section": "Documentation"},
+    {"type": "infra", "section": "Infrastructure Changes"},
+    {"type": "chore", "section": "Miscellaneous Chores"}
+  ],
+  "release-search-depth": 10,
+  "commit-search-depth": 20
+}

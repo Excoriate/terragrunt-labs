@@ -1,0 +1,87 @@
+# Version Control
+.git/
+.gitignore
+.github/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Terraform and Terragrunt specific
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+.terragrunt-cache/
+
+# Dependency and build directories
+node_modules/
+vendor/
+dist/
+build/
+out/
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Environment files (be cautious with this, only ignore if you're sure)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Backup files
+*.bak
+*.gho
+*.ori
+*.orig
+*.tmp
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Archives and compressed files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Documentation and notes
+README.md
+CONTRIBUTING.md
+CHANGELOG.md
+TODO.md
+notes/
+
+# CI/CD and workflow files (optional, remove if needed)
+.gitlab-ci.yml
+.travis.yml
+circle.yml
+
+# Miscellaneous
+.cache/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

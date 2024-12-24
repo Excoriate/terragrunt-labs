@@ -207,13 +207,23 @@ build-docker provider='hashicorp' terraform_version='1.10.2' terragrunt_version=
 # 🚀 Create a new issue contribution from template
 new-issue issue:
     @echo "🚀 Creating new issue contribution for #{{issue}}"
-    @cp -R "{{TEMPLATES_DIR}}/V1_NEW_GH_ISSUE_CONTRIBUTION" "{{CONTRIBUTIONS_DIR}}/issue-{{issue}}"
-    @sed -i '' "s/GITHUB_ISSUE_NUMBER=1234/GITHUB_ISSUE_NUMBER={{issue}}/" "{{CONTRIBUTIONS_DIR}}/issue-{{issue}}/.env"
-    @echo "✅ Issue contribution template created successfully in {{CONTRIBUTIONS_DIR}}/issue-{{issue}}"
+    @mkdir -p "$(PWD)/terragrunt/contributions/issue-{{issue}}"
+    @if [ ! -d "$(PWD)/templates/V1_NEW_GH_ISSUE_CONTRIBUTION" ]; then \
+        echo "❌ Template directory not found. Please check the path."; \
+        exit 1; \
+    fi
+    @cp -R "$(PWD)/templates/V1_NEW_GH_ISSUE_CONTRIBUTION"/* "$(PWD)/terragrunt/contributions/issue-{{issue}}/"
+    @if [ ! -f "$(PWD)/terragrunt/contributions/issue-{{issue}}/.env" ]; then \
+        touch "$(PWD)/terragrunt/contributions/issue-{{issue}}/.env"; \
+        echo "GITHUB_ISSUE_NUMBER={{issue}}" > "$(PWD)/terragrunt/contributions/issue-{{issue}}/.env"; \
+    else \
+        sed -i '' 's/GITHUB_ISSUE_NUMBER=.*/GITHUB_ISSUE_NUMBER={{issue}}/' "$(PWD)/terragrunt/contributions/issue-{{issue}}/.env"; \
+    fi
+    @echo "✅ Issue contribution template created successfully in $(PWD)/terragrunt/contributions/issue-{{issue}}"
     @echo "📜 Listing all generated files:"
-    @ls -ltrah "{{CONTRIBUTIONS_DIR}}/issue-{{issue}}"
+    @ls -ltrah "$(PWD)/terragrunt/contributions/issue-{{issue}}"
     @echo "🔍 Next steps:"
-    @echo "  1. cd {{CONTRIBUTIONS_DIR}}/issue-{{issue}}"
+    @echo "  1. cd $(PWD)/terragrunt/contributions/issue-{{issue}}"
     @echo "  2. Review and customize the files"
     @echo "  3. Start reproducing the issue"
     @echo "  4. Pull the GitHub issue details, for that, ensure you're running make pull-issue issue={{issue}} or replace the issue number in the environment variable GITHUB_ISSUE_NUMBER in the .env file"
@@ -221,8 +231,22 @@ new-issue issue:
 # 🚀 Create a new scenario in the terragrunt/scenarios directory
 new-scenario scenario:
     @echo "🚀 Creating new scenario in the terragrunt/scenarios directory"
-    @cp -R "{{TEMPLATES_DIR}}/V1_NEW_GH_ISSUE_CONTRIBUTION" "{{SCENARIOS_DIR}}/scenario-{{scenario}}"
-    @echo "✅ Scenario created successfully in {{SCENARIOS_DIR}}/scenario-{{scenario}}"
+    @mkdir -p "$(PWD)/terragrunt/scenarios/scenario-{{scenario}}"
+    @if [ ! -d "$(PWD)/templates/V1_NEW_GH_ISSUE_CONTRIBUTION" ]; then \
+        echo "❌ Template directory not found. Please check the path."; \
+        exit 1; \
+    fi
+    @cp -R "$(PWD)/templates/V1_NEW_GH_ISSUE_CONTRIBUTION"/* "$(PWD)/terragrunt/scenarios/scenario-{{scenario}}/"
+    @if [ ! -f "$(PWD)/terragrunt/scenarios/scenario-{{scenario}}/.env" ]; then \
+        touch "$(PWD)/terragrunt/scenarios/scenario-{{scenario}}/.env"; \
+        echo "SCENARIO_NAME={{scenario}}" > "$(PWD)/terragrunt/scenarios/scenario-{{scenario}}/.env"; \
+    else \
+        sed -i '' 's/SCENARIO_NAME=.*/SCENARIO_NAME={{scenario}}/' "$(PWD)/terragrunt/scenarios/scenario-{{scenario}}/.env"; \
+    fi
+    @echo "✅ Scenario created successfully in $(PWD)/terragrunt/scenarios/scenario-{{scenario}}"
+    @echo "📜 Listing all generated files:"
+    @ls -ltrah "$(PWD)/terragrunt/scenarios/scenario-{{scenario}}"
     @echo "🔍 Next steps:"
-    @echo "  1. cd {{SCENARIOS_DIR}}/scenario-{{scenario}}"
+    @echo "  1. cd $(PWD)/terragrunt/scenarios/scenario-{{scenario}}"
     @echo "  2. Review and customize the files"
+    @echo "  3. Set up your scenario configuration"

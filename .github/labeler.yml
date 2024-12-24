@@ -69,18 +69,22 @@ maintenance:
           - 'justfile'
           - '.cursorrules'
 
-# Branch-based labels
+# Feature PRs
 feature:
-  - head-branch: ['feature/*', 'feat/*']
+  - head-branch: 'feature/*'
+  - head-branch: 'feat/*'
 
-infrastructure:
-  - head-branch: ['^infra/', 'infrastructure']
-
+# Bug fix PRs
 bug:
-  - head-branch: ['fix/*', 'bugfix/*', 'bug/*']
+  - head-branch: 'fix/*'
+  - head-branch: 'bugfix/*'
+  - head-branch: 'bug/*'
 
+# Breaking changes
 breaking:
-  - head-branch: ['breaking/*', 'major/*']
+  - head-branch: 'breaking/*'
+  - head-branch: 'major/*'
 
+# Release PRs
 release:
-  - base-branch: main
+  - base-branch: 'main'

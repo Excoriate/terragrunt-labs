@@ -5,31 +5,46 @@
       "release-type": "go",
       "bump-minor-pre-major": true,
       "bump-patch-for-minor-pre-major": true,
-      "changelog-path": "tools/gh-issue-puller/CHANGELOG.md"
+      "changelog-path": "tools/gh-issue-puller/CHANGELOG.md",
+      "package-name": "gh-issue-puller",
+      "include-v-in-tag": true,
+      "extra-files": [
+        "tools/gh-issue-puller/main.go"
+      ]
     },
     "terragrunt/contributions": {
-      "release-type": "contributions",
+      "release-type": "simple",
       "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true
+      "bump-patch-for-minor-pre-major": true,
+      "changelog-path": "terragrunt/contributions/CHANGELOG.md",
+      "include-v-in-tag": true
     },
     "terragrunt/archive": {
-      "release-type": "archive",
+      "release-type": "simple",
       "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true
+      "bump-patch-for-minor-pre-major": true,
+      "changelog-path": "terragrunt/archive/CHANGELOG.md",
+      "include-v-in-tag": true
     },
     "terragrunt/scenarios": {
-      "release-type": "scenarios",
+      "release-type": "simple",
       "bump-minor-pre-major": true,
-      "bump-patch-for-minor-pre-major": true
+      "bump-patch-for-minor-pre-major": true,
+      "changelog-path": "terragrunt/scenarios/CHANGELOG.md",
+      "include-v-in-tag": true
     }
   },
   "changelog-sections": [
-    {"type": "feat", "section": "Features"},
-    {"type": "fix", "section": "Bug Fixes"},
-    {"type": "docs", "section": "Documentation"},
-    {"type": "infra", "section": "Infrastructure Changes"},
-    {"type": "chore", "section": "Miscellaneous Chores"}
+    {"type": "feat", "section": "✨ Features"},
+    {"type": "fix", "section": "🐛 Bug Fixes"},
+    {"type": "docs", "section": "📝 Documentation"},
+    {"type": "infra", "section": "🏗️ Infrastructure"},
+    {"type": "chore", "section": "🔧 Maintenance"}
   ],
   "release-search-depth": 10,
-  "commit-search-depth": 20
+  "commit-search-depth": 20,
+  "include-v-in-tag": true,
+  "separate-pull-requests": true,
+  "pull-request-title-pattern": "chore${scope}: release${component} ${version}",
+  "pull-request-header": "Automated Release PR"
 }

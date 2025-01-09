@@ -40,6 +40,21 @@
         && rm -f install-opentofu.sh \
         && chmod 755 /usr/local/bin/tofu
 
+    # Install additional network debugging tools
+    RUN apk add --no-cache \
+        bind-tools \
+        drill \
+        curl \
+        ca-certificates \
+        netcat-openbsd
+
+    # Create a network configuration script
+    RUN echo '#!/bin/sh' > /usr/local/bin/network-config.sh \
+        && echo 'mkdir -p /etc/resolv.conf.d' >> /usr/local/bin/network-config.sh \
+        && echo 'echo "nameserver 8.8.8.8" > /etc/resolv.conf.d/head' >> /usr/local/bin/network-config.sh \
+        && echo 'echo "nameserver 1.1.1.1" >> /etc/resolv.conf.d/head' >> /usr/local/bin/network-config.sh \
+        && echo 'cat /etc/resolv.conf.d/head' >> /usr/local/bin/network-config.sh \
+        && chmod +x /usr/local/bin/network-config.sh
 
     # -------------------------------------------
     # 3) Stage named "mount" (default if WORKSPACE_MODE=mount).
@@ -76,4 +91,4 @@
     WORKDIR /workspace
 
     # Entrypoint or CMD as needed
-    ENTRYPOINT ["/bin/bash"]
+    ENTRYPOINT ["/bin/sh", "-c", "/usr/local/bin/network-config.sh && exec /bin/bash"]

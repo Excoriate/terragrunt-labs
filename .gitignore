@@ -75,3 +75,9 @@ Cargo.lock
 
 # Tools
 tools/gh-issue-puller/gh-issue-puller
+
+# Ignore service account JSON keys
+sa.json
+.sa.json
+**/sa.json
+**/*/sa.json

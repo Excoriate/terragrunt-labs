@@ -1,6 +1,6 @@
 {
   "tools/gh-issue-puller": "1.0.0",
-  "terragrunt/contributions": "0.0.0",
+  "terragrunt/contributions": "1.0.0",
   "terragrunt/archive": "1.0.0",
   "terragrunt/scenarios": "0.0.0"
 }

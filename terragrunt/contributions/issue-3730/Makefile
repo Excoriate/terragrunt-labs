@@ -175,24 +175,24 @@ help:
 # --------------------------------------------------------------------
 .PHONY: gcp-setup
 gcp-setup-plan:
-	cd terraform/gcp-setup && \
+	cd terraform/module-gcp-setup-bucket && \
 	GCP_PROJECT_ID=$(GCP_PROJECT_ID) \
 	GCP_BILLING_ACCOUNT_ID=$(GCP_BILLING_ACCOUNT_ID) \
-	GCP_SERVICE_ACCOUNT_JSON=$(GCP_SERVICE_ACCOUNT_JSON) \
+	GOOGLE_APPLICATION_CREDENTIALS=$(GOOGLE_APPLICATION_CREDENTIALS) \
 	terragrunt plan
 
 .PHONY: gcp-setup-apply
 gcp-setup-apply:
-	cd terraform/gcp-setup && \
+	cd terraform/module-gcp-setup-bucket && \
 	GCP_PROJECT_ID=$(GCP_PROJECT_ID) \
 	GCP_BILLING_ACCOUNT_ID=$(GCP_BILLING_ACCOUNT_ID) \
-	GCP_SERVICE_ACCOUNT_JSON=$(GCP_SERVICE_ACCOUNT_JSON) \
+	GOOGLE_APPLICATION_CREDENTIALS=$(GOOGLE_APPLICATION_CREDENTIALS) \
 	terragrunt apply -auto-approve
 
 .PHONY: gcp-setup-destroy
 gcp-setup-destroy:
-	cd terraform/gcp-setup && \
+	cd terraform/module-gcp-setup-bucket && \
 	GCP_PROJECT_ID=$(GCP_PROJECT_ID) \
 	GCP_BILLING_ACCOUNT_ID=$(GCP_BILLING_ACCOUNT_ID) \
-	GCP_SERVICE_ACCOUNT_JSON=$(GCP_SERVICE_ACCOUNT_JSON) \
+	GOOGLE_APPLICATION_CREDENTIALS=$(GOOGLE_APPLICATION_CREDENTIALS) \
 	terragrunt destroy -auto-approve

@@ -1,7 +1,7 @@
 locals {
   # Fetch project details from the gcp-setup module outputs
   project_id          = get_env("GCP_PROJECT_ID", "")
-  bucket_name         = get_env("SCENARIO_BUCKET_NAME", "")
+  bucket_name = format("%s-%s", get_env("GCP_PROJECT_ID", ""), "issue-3730")
   bucket_location     = "us-central1"
 }
 
@@ -10,8 +10,6 @@ remote_state {
   config = {
     bucket   = local.bucket_name
     prefix   = "issue-3730/${path_relative_to_include()}"
-    project  = local.project_id
-    location = local.bucket_location
   }
   generate = {
     path      = "backend.tf"
@@ -20,23 +18,20 @@ remote_state {
 }
 
 terraform {
-  source = "terraform/module-scenario"
+  source = "${path_relative_from_include()}"
 }
 
-generate "providers" {
-  path      = "providers.tf"
-  if_exists = "overwrite"
-  contents  = <<EOF
-terraform {
-  required_providers {
-    random = {
-      source = "hashicorp/random"
+generate "provider" {
+  path      = "provider.tf"
+  if_exists = "overwrite_terragrunt"
+  contents  = <<-EOF
+    provider "google" {
+      project     = "${local.project_id}"
+      credentials = file("${get_env("GOOGLE_APPLICATION_CREDENTIALS", "")}")
     }
-  }
-}
-EOF
+  EOF
 }
 
 inputs = {
-  prefix = "issue-3730"
+  project_id = local.project_id
 }

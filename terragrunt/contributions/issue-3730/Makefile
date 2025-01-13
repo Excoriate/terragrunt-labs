@@ -196,3 +196,14 @@ gcp-setup-destroy:
 	GCP_BILLING_ACCOUNT_ID=$(GCP_BILLING_ACCOUNT_ID) \
 	GOOGLE_APPLICATION_CREDENTIALS=$(GOOGLE_APPLICATION_CREDENTIALS) \
 	terragrunt destroy -auto-approve
+
+# --------------------------------------------------------------------
+#  Scenario
+# --------------------------------------------------------------------
+.PHONY: scenario-plan
+scenario-plan:
+	cd terraform/module-scenario && \
+	GCP_PROJECT_ID=$(GCP_PROJECT_ID) \
+	GCP_BILLING_ACCOUNT_ID=$(GCP_BILLING_ACCOUNT_ID) \
+	GOOGLE_APPLICATION_CREDENTIALS=$(GOOGLE_APPLICATION_CREDENTIALS) \
+	terragrunt plan --terragrunt-log-level debug
